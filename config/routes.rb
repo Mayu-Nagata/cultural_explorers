@@ -9,9 +9,12 @@ Rails.application.routes.draw do
   }
 
 
-  namespace :public do
+  scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
+  end
+
+  namespace :public do
     get 'end_users' => 'end_users#show'
     get 'end_users/information/edit' => 'end_users#edit'
     patch 'end_users/information' => 'end_users#update'
