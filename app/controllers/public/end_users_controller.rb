@@ -1,4 +1,9 @@
-class EndUsersController < ApplicationController
+class Public::EndUsersController < ApplicationController
+
+  def index
+  end
+
+
   def show
   end
 
@@ -7,4 +12,13 @@ class EndUsersController < ApplicationController
 
   def update
   end
+
+  def new
+  end
+
+
+
+
+
+
 end
