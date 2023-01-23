@@ -52,7 +52,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
    def after_sign_up_path_for(resource)
-    public_path(current_end_user.id)
+    end_user_path(current_end_user.id)
   #   super(resource)
    end
 

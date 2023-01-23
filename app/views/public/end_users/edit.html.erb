@@ -2,6 +2,27 @@
   <div class="row">
     <div class="mt-3 mx-auto">
       <h2>My profile</h2>
+      <% if @end_user.errors.any? %>
+      <h2><%=@end_user.errors.count %>errors prohibited this end_user from being saved:</h2>
+      <ul>
+        <% @end_user.errors.full_messages.each do |message| %>
+        <li><%=message %></li>
+        <% end %>
+      </ul>
+      <% end %>
+      <%= form_with model: @end_user do |f| %>
+        <p>Name</p>
+        <%= f.text_field :name %>
+
+        <p>Profile image</p>
+        <%= f.file_field :profile_image, accept: "image/*" %>
+
+        <p>Introduction</p>
+        <%= f.text_area :introduction %><br />
+
+        <%= f.submit "Update profile", class: "mt-3 btn btn-secondary" %>
+
+      <% end %>
     </div>
   </div>
 </div>

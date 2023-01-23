@@ -23,17 +23,17 @@
            <ul class="navbar-nav ml-auto">
            <% if end_user_signed_in? %>
            <li class="nav-item" >
-             <%= link_to public_path(current_end_user.id), class: "nav-link text-light" do %>
+             <%= link_to end_user_path(current_end_user.id), class: "nav-link text-light" do %>
              Home
              <% end %>
            </li>
 
            <li class="nav-item">
-             <%= link_to public_end_users_path, class: "nav-link text-light" do %>Users
+             <%= link_to end_users_path, class: "nav-link text-light" do %>Users
              <% end %>
            </li>
            <li class="nav-item">
-             <%= link_to public_posts_path, class: "nav-link text-light" do %>Posts
+             <%= link_to posts_path, class: "nav-link text-light" do %>Posts
              <% end %>
            </li>
            <li class="nav-item">
