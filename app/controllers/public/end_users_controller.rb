@@ -33,6 +33,11 @@ class Public::EndUsersController < ApplicationController
 
   end
 
+  def unsubscribe
+    @end_user = current_end_user
+
+  end
+
   def new
   end
 

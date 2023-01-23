@@ -12,11 +12,12 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
+    get 'end_users/unsubscribe' => 'end_users#unsubscribe'
+    patch 'end_users/withdraw' => 'end_users#withdraw'
     resources :end_users, only: [:index, :show, :update]
     get 'end_users/information/edit' => 'end_users#edit'
     #patch 'end_users/information' => 'end_users#update'
-    get 'end_users/unsubscribe' => 'end_users#unsubscribe'
-    patch 'end_users/withdraw' => 'end_users#withdraw'
+
     resources :posts, only: [ :index, :new, :show, :create, :destroy]
     resources :likes, only: [ :index]
 
