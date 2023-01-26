@@ -1,2 +1,14 @@
-<h1>Public::Posts#show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="mt-3 mx-auto">
+      <div>
+        <%= image_tag @post.get_image(500,900) %>
+        <%= link_to edit_post_path(@post) do %>Edit post<% end %>
+
+      </div>
+
+      <div class="mt-5"><b><%=@post.title %></b></div>
+      <div class="mt-5"><%=@post.text %></div>
+    </div>
+  </div>
+</div>

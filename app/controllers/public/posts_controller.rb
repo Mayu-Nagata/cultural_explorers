@@ -4,7 +4,7 @@ class Public::PostsController < ApplicationController
 
   def new
 
-    @post = Post.new
+    @post = current_end_user.posts.new
 
   end
 
@@ -29,20 +29,50 @@ class Public::PostsController < ApplicationController
 
       end
 
-
-
-
-
-
   end
 
   def show
+    @post = Post.find(params[:id])
+  end
+
+  def edit
+    #binding.pry
+    @post = Post.find(params[:id])
+
+    if @post.end_user == current_end_user
+      render "edit"
+
+    else
+      redirect_to posts_path
+    end
+  end
+
+  def update
+      @post = Post.find(params[:id])
+      @post.end_user_id = current_end_user.id
+
+    if @post.update(post_params)
+      flash[:notice] = "You have updated post successfully."
+      redirect_to post_path(@post.id)
+
+    else
+      render :edit
+
+
+    end
+
+  end
+
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy
+    redirect_to '/posts'
   end
 
   private
 
   def post_params
-    params.require(:post).permit( :image,:title, :text)
+    params.require(:post).permit( :image, :title, :text)
 
   end
 end
