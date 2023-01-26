@@ -90,7 +90,6 @@ ActiveRecord::Schema.define(version: 2023_01_22_035144) do
     t.integer "end_user_id", null: false
     t.string "title", null: false
     t.text "text", null: false
-    t.text "comment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["end_user_id"], name: "index_posts_on_end_user_id"

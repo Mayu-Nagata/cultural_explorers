@@ -1,2 +1,17 @@
-<h1>Public::Posts#new</h1>
-<p>Find me in app/views/public/posts/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="mt-3 mx-auto">
+      <h2>Share your experiences</h2>
+      <%= form_with model: @post, url: posts_path, method: :post do |f| %>
+      <p>Image</p>
+      <%= f.file_field :image, accept: "image/*" %>
+      <p>Title</p>
+      <%= f.text_field :title %>
+      <p>Text</p>
+      <%= f.text_area :text %>
+
+      <br /><%= f.submit 'Post', class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
