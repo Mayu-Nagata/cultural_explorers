@@ -1,5 +1,7 @@
 class Public::PostsController < ApplicationController
   def index
+    @posts = Post.all
+    @end_users = EndUser.all
   end
 
   def new
@@ -33,6 +35,7 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
   end
 
   def edit

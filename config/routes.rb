@@ -18,7 +18,9 @@ Rails.application.routes.draw do
     get 'end_users/information/edit' => 'end_users#edit'
     #patch 'end_users/information' => 'end_users#update'
 
-    resources :posts, only: [ :index, :new, :show, :create, :edit, :update, :destroy]
+    resources :posts, only: [ :index, :new, :show, :create, :edit, :update, :destroy] do
+      resources :comments, only: [:create, :destroy]
+    end
     resources :likes, only: [ :index]
 
   end

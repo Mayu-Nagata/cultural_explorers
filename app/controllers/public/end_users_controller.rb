@@ -3,13 +3,14 @@ class Public::EndUsersController < ApplicationController
   def index
     @end_user = current_end_user
     @post = Post.new
+    @end_users = EndUser.all
 
   end
 
 
   def show
     @end_user = EndUser.find(params[:id])
-    #@posts = @end_user.posts
+    @posts = @end_user.posts
     @post = Post.new
   end
 
