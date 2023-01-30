@@ -19,9 +19,10 @@ Rails.application.routes.draw do
     #patch 'end_users/information' => 'end_users#update'
 
     resources :posts, only: [ :index, :new, :show, :create, :edit, :update, :destroy] do
+      resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
-    resources :likes, only: [ :index]
+
 
   end
 

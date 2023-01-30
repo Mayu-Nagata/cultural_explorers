@@ -9,6 +9,19 @@
       <div class="mt-5"><b><%=@post.title %></b></div>
       <div class="mt-5"><%=@post.text %></div>
       <div class="mt-5">
+        <% if @post.favorited_by?(current_end_user) %>
+          <p>
+            <%= link_to post_favorites_path(@post), method: :delete do %>
+              ♥<%= @post.favorites.count %>
+            <% end %>
+          </p>
+          <% else %>
+          <p>
+            <%= link_to post_favorites_path(@post), method: :post do %>
+              ♡<%= @post.favorites.count %>
+            <% end %>
+          </p>
+        <% end %>
         <p>Comment : <%= @post.comments.count %></p>
         <% @post.comments. each do |comment| %>
           <div><%= image_tag comment.end_user.get_profile_image(100,100) %>　<b><%=link_to end_user_path(comment.end_user.id), class:"text-none" do %><%= comment.end_user.name %><% end %></b> <%= comment.comment %>
