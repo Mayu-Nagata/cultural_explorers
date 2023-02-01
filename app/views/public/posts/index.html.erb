@@ -11,25 +11,14 @@
             <% @posts.each do |post| %>
             <td><%= link_to end_user_path(post.end_user.id) do %><%= image_tag post.end_user.get_profile_image(100,100) %><% end %></td>
             <td><%= link_to post_path(post.id) do %><b><%= post.title %></b><% end %><br><%= link_to end_user_path(post.end_user.id) do %><%= post.end_user.name %><% end %></td>
-            <td><%= link_to "Comment: #{post.comments.count}", post_path(post.id) %></td>
+            <td>Comment:<%= post.comments.count %></td>
             <td>
-            <% if post.favorited_by?(current_end_user) %>
-              <%= link_to posts_favorites_path(post), method: :delete do %>
-                ♥<%= post.favorites.count %>
-              <% end %>
-
-              <% else %>
-
-              <%= link_to post_favorites_path(post), method: :post do %>
-              ♡<%= post.favorites.count %>
-              <% end %>
-
-            <% end %>
+               ♡<%= post.favorites.count %>
             </td>
 
-
-            <% end %>
           </tr>
+            <% end %>
+
         </tbody>
       </table>
     </div>

@@ -28,7 +28,9 @@
         <% @posts.each do |post| %>
           <tr>
             <td><%=link_to post_path(post.id) do %><%= image_tag post.get_image(200,300) %><% end %></td>
-            <td><%= link_to post_path(post.id) do %><%= post.title %><% end %></td>
+            <td><%= link_to post_path(post.id) do %><h2><%= post.title %></h2><% end %></td>
+            <td>Comment:<%= post.comments.count %></td>
+            <td>♡<%= post.favorites.count %></td>
           </tr>
         <% end %>
 

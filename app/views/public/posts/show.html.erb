@@ -6,7 +6,7 @@
     </div>
     <div class="mt-3 mx-auto">
       <div class="mt-5"><%= image_tag @post.get_image(500,900) %></div>
-      <div class="mt-5"><b><%=@post.title %></b></div>
+      <div class="mt-5"><h2><b><%=@post.title %></b></h2><br><%= image_tag @post.end_user.profile_image, style: "border-radius: 50%; width: 50px; height: 50px; object-fit:cover;" %> <%= @post.end_user.name %></div>
       <div class="mt-5"><%=@post.text %></div>
       <div class="mt-5">
         <% if @post.favorited_by?(current_end_user) %>
