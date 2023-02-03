@@ -14,7 +14,12 @@ Rails.application.routes.draw do
     get 'about' => 'homes#about'
     get 'end_users/unsubscribe' => 'end_users#unsubscribe'
     patch 'end_users/withdraw' => 'end_users#withdraw'
-    resources :end_users, only: [:index, :show, :update]
+    resources :end_users, only: [:index, :show, :update] do
+      member do
+
+        get :favorites
+      end
+    end
     get 'end_users/information/edit' => 'end_users#edit'
     #patch 'end_users/information' => 'end_users#update'
 

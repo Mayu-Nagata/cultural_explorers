@@ -42,6 +42,16 @@ class Public::EndUsersController < ApplicationController
   def new
   end
 
+  def favorites
+    @end_user = EndUser.find(params[:id])
+    @posts = @end_user.favorites
+
+    favorites = Favorite.where(end_user_id: current_end_user.id).pluck(:post_id)
+    @favorite_list = Post.find(favorites)
+
+
+  end
+
   private
 
   def post_params
