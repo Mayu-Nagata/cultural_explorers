@@ -32,7 +32,7 @@ Rails.application.routes.draw do
 
   end
 
-  scope moddule: :admin do
+  scope module: :admin do
     get 'admin' => 'homes#top'
 
   end
