@@ -2,7 +2,7 @@
   <div class="row">
     <div class="mt-3 col-md-4">
       <h2>User profile</h2>
-      <%= image_tag @end_user.get_profile_image, style: "border-radius: 50%; width: 100px; height: 100px; object-fit:cover;" %>
+      <%= image_tag @end_user.get_profile_image(100,100), style: "border-radius: 50%; width: 100px; height: 100px; object-fit:cover;" %>
       <table class="table mt-3">
         <tbody>
           <tr>
