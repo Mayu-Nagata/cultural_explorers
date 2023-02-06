@@ -1,1 +1,10 @@
-<
+<div class="container">
+    <div class="row">
+        <div class="mx-auto">
+            <h2>
+                <%= link_to 'Log in', new_end_user_session_path, class:"btn btn-success text-light" %><br />
+                <%= link_to 'Log in as a guest', end_user_guest_sign_in_path, method: :post, class:"btn btn-secondary text-light mt-3" %>
+            </h2>
+        </div>
+    </div>
+</div>

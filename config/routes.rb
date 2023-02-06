@@ -6,6 +6,11 @@ Rails.application.routes.draw do
     passwords: "public/passwords"
   }
 
+  devise_scope :end_user do
+    post 'end_user/guest_sign_in', to: 'end_user/sessions#guest_sign_in'
+
+  end
+
   devise_for :admin, skip: [:registrations, :passwords],　controllers: {
     sessions: "admin/sessions"
   }
