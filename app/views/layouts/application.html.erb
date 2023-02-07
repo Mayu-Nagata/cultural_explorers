@@ -43,6 +43,14 @@
              <%= link_to destroy_end_user_session_path, method: :delete, class: "nav-link text-light" do %>Log out
              <% end %>
            </li><br>
+           <li class="nav-item">
+             <%= form_tag posts_path, :method => 'get' do %>
+              <p>
+               <%= text_field_tag :search, params[:search] %>
+               <%= submit_tag "Search", :name => nil %>
+              </p>
+             <% end %>
+           </li>
 
 
 

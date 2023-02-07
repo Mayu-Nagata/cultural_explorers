@@ -16,5 +16,14 @@ class Post < ApplicationRecord
 
   end
 
+  def self.search(search) #self.でクラスメソッドとしている
+    if search
+      Post.where(['title LIKE ?', "%#{search}%"])
+
+    else
+      Post.all
+    end
+  end
+
   belongs_to :end_user
 end
