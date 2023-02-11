@@ -1,0 +1,52 @@
+.map{
+  padding-top: 20px;
+  padding-right: 0%;
+  display: flex;
+
+  background-position: right;
+}
+
+
+.log_in{
+  text-align: center;
+
+}
+
+h2{
+
+  padding-top: 40%;
+  color: #FF8C00;
+  font-style: italic;
+  font-family: cursive;
+  font-size: 55px;
+  background: -webkit-linear-gradient(0deg, #40E0D0, #FF8C00, #FF0080);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.wrapper{
+  padding-top: 10%;
+
+
+  gap: 1em;
+  width: fit-content;
+}
+
+.btn--orange{
+  background-color: #eb6100;
+  border-bottom: 5px solid #b84c00;
+  padding-left: 3em;
+  text-align: center;
+  padding-right: 3em;
+
+}
+btn--orange:hover {
+  margin-top: 3px;
+  color: #fff;
+  background: #f56500;
+  border-bottom: 2px solid #b84c00;
+}
+.btn--shadow {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}

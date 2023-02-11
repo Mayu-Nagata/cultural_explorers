@@ -8,7 +8,9 @@
       <p>Title</p>
       <%= f.text_field :title %>
       <p>Text</p>
-      <%= f.text_area :text %>
+      <%= f.text_area :text %><br>
+      <label>Tag</label><br>
+      <%= f.text_field :tag, value: @post.tags.pluck(:name) %>
 
       <br /><%= f.submit 'Post', class: "btn btn-primary" %>
       <% end %>

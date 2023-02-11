@@ -1,6 +1,6 @@
 class Public::PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page])
     @posts = Post.search(params[:search])
     @end_user = current_end_user
     @end_users = EndUser.all
@@ -21,6 +21,8 @@ class Public::PostsController < ApplicationController
       if @post.save
 
         flash[:notice] = 'You have posted successfully.'
+        @post.save_tags(params[:post][:tag])
+
         redirect_to post_path(@post.id)
 
       else
@@ -29,7 +31,7 @@ class Public::PostsController < ApplicationController
         @posts = Post.all
 
 
-        render :index
+        render :new
 
       end
 
@@ -58,6 +60,7 @@ class Public::PostsController < ApplicationController
 
     if @post.update(post_params)
       flash[:notice] = "You have updated post successfully."
+      @post.save_tags(params[:post][:tag])
       redirect_to post_path(@post.id)
 
     else
@@ -77,7 +80,7 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit( :image, :title, :text)
+    params.require(:post).permit( :image, :title, :text, :tag_id)
 
   end
 end

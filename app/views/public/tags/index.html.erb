@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="mt-5 ml-5">
+      <h2>Tags</h2>
+      <ul>
+        <% @tags.each do |tag| %>
+          <li>
+            <%= link_to "#{tag.name} ( posts: #{tag.posts.count} )", tag_path(tag) %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+</div>

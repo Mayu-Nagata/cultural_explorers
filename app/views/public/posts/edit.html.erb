@@ -21,6 +21,9 @@
         <p>Text</p>
         <%= f.text_area :text %><br />
 
+        <label>Tag</label><br>
+        <%= f.text_field :tag, value: @post.tags.pluck(:name) %>
+
         <%= f.submit "Update post", class: "mt-3 btn btn-success" %>
 
       <% end %>

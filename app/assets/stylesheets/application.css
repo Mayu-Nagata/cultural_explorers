@@ -13,3 +13,6 @@
  *= require_tree .
  *= require_self
  */
+h2 {
+  background: red;
+}

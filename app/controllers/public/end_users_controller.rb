@@ -3,14 +3,14 @@ class Public::EndUsersController < ApplicationController
   def index
     @end_user = current_end_user
     @post = Post.new
-    @end_users = EndUser.all
+    @end_users = EndUser.page(params[:page])
 
   end
 
 
   def show
     @end_user = EndUser.find(params[:id])
-    @posts = @end_user.posts
+    @posts = @end_user.posts.page(params[:page])
     @post = Post.new
   end
 
@@ -51,7 +51,7 @@ class Public::EndUsersController < ApplicationController
 
   def favorites
     @end_user = EndUser.find(params[:id])
-    @posts = @end_user.favorites
+    @posts = @end_user.favorites.page(params[:page])
 
     favorites = Favorite.where(end_user_id: current_end_user.id).pluck(:post_id)
     @favorite_list = Post.find(favorites)
