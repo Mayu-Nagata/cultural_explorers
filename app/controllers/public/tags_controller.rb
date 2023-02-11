@@ -2,7 +2,7 @@ class Public::TagsController < ApplicationController
 
   def index
 
-    @tags = Tag.all
+    @tags = Tag.page(params[:page])
 
 
   end

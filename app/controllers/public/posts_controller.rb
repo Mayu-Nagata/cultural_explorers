@@ -1,7 +1,8 @@
 class Public::PostsController < ApplicationController
   def index
-    @posts = Post.page(params[:page])
-    @posts = Post.search(params[:search])
+
+    @posts = Post.page(params[:page]).per(5)
+    @posts = Post.search(params[:search]).page(params[:page]).per(5)
     @end_user = current_end_user
     @end_users = EndUser.all
   end
@@ -28,7 +29,7 @@ class Public::PostsController < ApplicationController
       else
 
         @end_user = current_end_user
-        @posts = Post.all
+        @posts = Post.page(params[:page]).per(5)
 
 
         render :new

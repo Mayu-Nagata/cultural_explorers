@@ -43,10 +43,10 @@
           <% end %>
         </p>
       </div>
-      <table class="table">
+      <table class="table table-borderless">
         <thead>
           <th>
-            Comments
+
           </th>
         </thead>
           <tbody>
@@ -79,6 +79,7 @@
                   <td>
                     <%= comment.comment %>
                   </td>
+                  <td></td>
                   <td>
                   <% if comment.end_user== current_end_user %>
                     <button type="submit" class="btn ml-4 btn-danger"><%= link_to post_comment_path(comment.post, comment), method: :delete, "data-confirm" => "Are you sure you want to delete this comment?", class:"text-light" do %>Delete<% end %></button>
