@@ -11,23 +11,24 @@ Rails.application.routes.draw do
 
   end
 
-  devise_for :admin, skip: [:registrations, :passwords],　controllers: {
+  devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
 
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
-    get 'end_users/unsubscribe' => 'end_users#unsubscribe'
-    patch 'end_users/withdraw' => 'end_users#withdraw'
+
     resources :end_users, only: [:index, :show, :update] do
       member do
 
         get :favorites
+
       end
     end
     get 'end_users/information/edit' => 'end_users#edit'
-    #patch 'end_users/information' => 'end_users#update'
+    get 'end_users/unsubscribe' => 'end_users#unsubscribe'
+    patch 'end_users/withdraw' => 'end_users#withdraw'
 
     resources :posts, only: [ :index, :new, :show, :create, :edit, :update, :destroy] do
       resource :favorites, only: [:create, :destroy]
@@ -47,7 +48,9 @@ Rails.application.routes.draw do
   namespace :admin do
 
     resources :end_users, only: [ :index, :show, :edit, :update]
-    resources :posts, only: [ :show, :destroy]
+    resources :posts, only: [ :show, :destroy] do
+      resources :comments, only: [:destroy]
+    end
  end
 
 

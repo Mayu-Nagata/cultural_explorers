@@ -1,2 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Zen+Antique+Soft&display=swap');
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+body {
+  font-family: 'Montserrat', 'Zen Antique Soft', sans-serif;
+}
+
+.search{
+  margin: 0 0 0 auto;
+}
+
+.content{
+  max-width: 20em;
+}
