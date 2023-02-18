@@ -12,10 +12,25 @@
         <% @favorite_list.each do |post| %>
           <tr>
             <td><%=link_to post_path(post.id) do %><%= image_tag post.get_image(200,300) %><% end %></td>
-            <td><%= link_to post_path(post.id) do %><h2><%= post.title %></h2><% end %></td>
             <td>
-              <i class="far fa-comment-dots"></i>
-              <%= post.comments.count %>
+              <h2>
+                <%= link_to post_path(post.id), class:"text-reset" do %>
+
+                  <%= post.title %>
+
+                <% end %>
+              </h2>
+              <br>
+              <%= link_to end_user_path(post.end_user.id), class:"text-reset" do %>
+                <%= image_tag post.end_user.profile_image, style: "border-radius: 50%; width: 50px; height: 50px; object-fit:cover;" %>
+                <%= post.end_user.name %>
+              <% end %>
+            </td>
+            <td>
+              <div class="comment">
+                <i class="far fa-comment-dots"></i>
+                <%= post.comments.count %>
+              </div>
             </td>
             <td id="favorite_buttons_<%= post.id %>">
               <%= render "favorites/favorite", post: post %>

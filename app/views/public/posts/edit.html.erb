@@ -12,17 +12,17 @@
       <% end %>
 
       <%= form_with model: @post, url: post_path(@post), method: :patch do |f| %>
-        <p>Image</p>
-        <%= f.file_field :image, accept: "image/*" %>
+        <label class="mt-3">Image</label><br>
+        <%= f.file_field :image, accept: "image/*" %><br>
 
-        <p>Title</p>
-        <%= f.text_field :title %>
+        <label class="mt-2">Title</label><br>
+        <%= f.text_field :title, class: 'form-control' %><br>
 
-        <p>Text</p>
-        <%= f.text_area :text %><br />
+        <label class="mt-2">Text</label><br>
+        <%= f.text_area :text, class: 'form-control' %><br>
 
         <label>Tag</label><br>
-        <%= f.text_field :tag, value: @post.tags.pluck(:name) %>
+        <%= f.text_field :tag, value: @post.tags.pluck(:name), class: 'form-control'  %><br>
 
         <%= f.submit "Update post", class: "mt-3 btn btn-success" %>
 

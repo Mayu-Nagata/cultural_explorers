@@ -1,5 +1,6 @@
 <div class="container">
   <div class="row">
+    <% if @post.end_user== current_end_user %>
     <div class ="col-auto ml-auto">
       <button type="submit" class="btn btn-success">
         <%= link_to edit_post_path(@post), class:"text-light" do  %>
@@ -12,18 +13,28 @@
         <% end %>
       </button>
     </div>
+    <% end %>
   </div>
   <div class="row">
-    <div class="mt-3 mx-auto">
+     <div class="mt-3 col-md-3">
+       <p>
+         <%=link_to end_user_path(@post.end_user.id), class:"text-reset" do %>
+           <%= image_tag @post.end_user.get_profile_image(50,50), style: "border-radius: 50%; width: 50px; height: 50px; object-fit:cover;" %>
+           <%= @post.end_user.name %>
+         <% end %>
+       </p>
+      <p><%= @post.end_user.introduction %><p>
+     </div>
+    <div class="mt-3 col-md-7 offset-md-1">
       <div class="mt-5"><%= image_tag @post.get_image(500,900) %></div>
       <div class="mt-5"><h2><b><%=@post.title %></b></h2><br><%= image_tag @post.end_user.profile_image, style: "border-radius: 50%; width: 50px; height: 50px; object-fit:cover;" %> <%= @post.end_user.name %></div>
       <div class="mt-5 content" style="line-height: 1.4;"><%= simple_format(@post.text) %></div>
       <div class="mt-5">
-        <ul>
+        <ul style="padding-left:0;">
           <% @post.tags.each do|tag| %>
 
-            <li>
-              <%= link_to tag.name, tag_path(tag.id) %>
+            <li style="list-style:none;">
+              #<%= link_to tag.name, tag_path(tag.id), class:"text-reset" %>
             </li>
           <% end %>
 

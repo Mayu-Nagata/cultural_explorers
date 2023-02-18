@@ -1,11 +1,13 @@
-<% if post.favorited_by?(current_end_user) %>
-  <%= link_to post_favorites_path(post), method: :delete, remote: true do %>
-    <i class="fas fa-heart"></i>
-    <%= post.favorites.count %>
+<div class="favorite">
+  <% if post.favorited_by?(current_end_user) %>
+    <%= link_to post_favorites_path(post), class:"text-reset", method: :delete, remote: true do %>
+      <i class="fas fa-heart"></i>
+      <%= post.favorites.count %>
+    <% end %>
+  <% else %>
+    <%= link_to post_favorites_path(post), class:"text-reset", method: :post, remote: true do %>
+      <i class="far fa-heart"></i>
+      <%= post.favorites.count %>
+    <% end %>
   <% end %>
-<% else %>
-  <%= link_to post_favorites_path(post), method: :post, remote: true do %>
-    <i class="far fa-heart"></i>
-    <%= post.favorites.count %>
-  <% end %>
-<% end %>
+</div>

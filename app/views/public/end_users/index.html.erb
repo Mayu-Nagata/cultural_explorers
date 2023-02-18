@@ -17,9 +17,11 @@
                 <% end %>
               </td>
               <td>
-                <%=link_to end_user_path(end_user.id) do %>
-                  <%= end_user.name %>
-                <% end %>
+                <h5>
+                  <%=link_to end_user_path(end_user.id), class:"text-reset" do %>
+                    <%= end_user.name %>
+                  <% end %>
+                </h5>
               </td>
               <td>
                 <%= end_user.introduction %>

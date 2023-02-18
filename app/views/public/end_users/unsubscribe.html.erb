@@ -1,16 +1,15 @@
 <div class="container">
   <div class="row">
-    <div class= " col-md-6 mt-5">
+    <div class= " col-md-8 mt-5">
       <h4><strong>Are you sure you want to delete your account?</strong></h4>
     </div>
-    <div class="mx-auto col-md-3 col-md-offset-4 mt-5"></div>
-    <h4>Once you delete your account,<br />
-      your profile and related account information will be deleted from our site.<br />
-
-    </h4><br />
-    <div class="mx-auto col-md-3 col-md-offset-4">
-      <%= link_to end_users_withdraw_path, method: :patch, "data-confirm" => "Are you sure you want to delete your account?", class: "btn btn-danger" do %>Delete account<% end %>
-      <%= link_to posts_path , class:"btn btn-primary" do %>Cancel<% end %>
+    <div class="col-md-8 mt-5">
+      <h4>
+        Once you delete your account,<br>
+        your profile and related account information will be deleted from our site.
+      </h4><br />
+        <%= link_to end_users_withdraw_path, method: :patch, "data-confirm" => "Are you sure you want to delete your account?", class: "btn btn-danger" do %>Delete account<% end %>
+        <%= link_to posts_path , class:"btn btn-primary" do %>Cancel<% end %>
     </div>
   </div>
 </div>

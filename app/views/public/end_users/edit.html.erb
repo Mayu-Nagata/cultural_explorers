@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="mt-3 mx-auto">
+    <div class="col-12 col-md-6 mx-auto">
       <h2>My profile</h2>
       <% if @end_user.errors.any? %>
       <h2><%=@end_user.errors.count %>errors prohibited this end_user from being saved:</h2>
@@ -11,14 +11,14 @@
       </ul>
       <% end %>
       <%= form_with model: @end_user do |f| %>
-        <p>Name</p>
-        <%= f.text_field :name %>
+        <label class="mt-3">Name</label>
+        <%= f.text_field :name, class: 'form-control' %>
 
-        <p>Profile image</p>
-        <%= f.file_field :profile_image, accept: "image/*" %>
+        <label class="mt-2">Profile image</label><br>
+        <%= f.file_field :profile_image, accept: "image/*" %><br>
 
-        <p>Introduction</p>
-        <%= f.text_area :introduction %><br />
+        <label class="mt-2">Introduction</label>
+        <%= f.text_area :introduction, class: 'form-control' %><br />
 
         <%= f.submit "Update profile", class: "mt-3 btn btn-secondary" %>
 
