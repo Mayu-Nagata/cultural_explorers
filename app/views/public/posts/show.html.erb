@@ -44,25 +44,31 @@
       </div>
       <div class="mt-2">
 
-        <p>
-          <i class="far fa-comment-dots"></i>
-          <%= @post.comments.count %>
+
+
+        <div class="favorite">
           <% if @post.favorited_by?(current_end_user) %>
 
-              <%= link_to post_favorites_path(@post), method: :delete do %>
+              <%= link_to post_favorites_path(@post), class:"text-reset", method: :delete do %>
                 <i class="fas fa-heart"></i>
                 <%= @post.favorites.count %>
               <% end %>
 
             <% else %>
 
-            <%= link_to post_favorites_path(@post), method: :post do %>
+            <%= link_to post_favorites_path(@post), class:"text-reset", method: :post do %>
                 <i class="far fa-heart"></i>
                 <%= @post.favorites.count %>
             <% end %>
 
           <% end %>
-        </p>
+        </div>
+
+        <div class="comment">
+          <i class="far fa-comment-dots"></i>
+          <%= @post.comments.count %>
+        </div>
+
       </div>
       <table class="table table-borderless">
         <thead>
