@@ -1,2 +1,20 @@
-<h1>Public::Homes#about</h1>
-<p>Find me in app/views/public/homes/about.html.erb</p>
+<%= stylesheet_link_tag "homes", :media => "all" %>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-8">
+      <h2>About this site ...</h2>
+        <h3>
+          Welcome to Cultural Explorers!<br>
+          Are you interested in cultural exchange?<br>
+          Do you want to share your own cultural things?<br>
+          On this site, you can share your cultural experiences with other users!
+        </h3>
+        <div class="wrapper">
+                     <%= link_to  new_end_user_registration_path, class:"btn btn--green btn--cubic btn--shadow text-light" do %>Sign up <% end %>
+                    <%= link_to  new_end_user_session_path, class:"btn btn--red btn--cubic btn--shadow text-light" do %>Log in <% end %>
+                    <%= link_to 'Log in as a guest', end_user_guest_sign_in_path, method: :post, class:"btn btn--gray btn--cubic btn--shadow text-light" %>
+
+        </div>
+    </div>
+  </div>
+</div>

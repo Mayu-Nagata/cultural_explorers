@@ -5,8 +5,8 @@
     </div>
     <div class="col-md-8 mt-5">
       <h4>
-        Once you delete your account,<br>
-        your profile and related account information will be deleted from our site.
+        Once you delete your account, there's no getting it back.<br>
+        Make sure you want to do this.
       </h4><br />
         <%= link_to end_users_withdraw_path, method: :patch, "data-confirm" => "Are you sure you want to delete your account?", class: "btn btn-danger" do %>Delete account<% end %>
         <%= link_to posts_path , class:"btn btn-primary" do %>Cancel<% end %>

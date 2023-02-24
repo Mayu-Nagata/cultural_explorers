@@ -90,26 +90,15 @@
           <% end %>
         </li>
     </header>
-      <main class="mt-3">
+    <main class="mt-3">
 
 
      <% if flash[:notice] %>
      <p><%= flash[:notice] %></p>
      <% end %>
-     <div class="container">
-       <div class="row">
-         <div class="search">
-           <%= form_tag posts_path, :method => 'get' do %>
-             <p>
-               <%= text_field_tag :search, params[:search] %>
-               <%= button_tag 'Search', type: 'submit', class: 'btn btn-info btn-sm', :name => nil %>
-             </p>
-           <% end %>
-         </div>
-        <%= yield %>
+    </main>
+      <%= yield %>
 
-       </div>
-    </div>
     </main>
 
 
