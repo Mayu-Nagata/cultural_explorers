@@ -1,5 +1,5 @@
 class Public::TagsController < ApplicationController
-
+   before_action :authenticate_end_user!,except: [:guest_sign_in]
   def index
 
     @tags = Tag.page(params[:page])

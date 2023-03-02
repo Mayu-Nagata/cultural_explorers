@@ -1,4 +1,5 @@
 class Public::FavoritesController < ApplicationController
+    before_action :authenticate_end_user!, except: [:guest_sign_in]
   def index
   end
 

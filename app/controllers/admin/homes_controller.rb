@@ -1,4 +1,5 @@
 class Admin::HomesController < ApplicationController
+  before_action :authenticate_admin!, if: :admin_url
   def top
     @posts = Post.page(params[:page])
   end

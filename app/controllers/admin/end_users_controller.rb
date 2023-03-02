@@ -1,4 +1,5 @@
 class Admin::EndUsersController < ApplicationController
+  before_action :authenticate_admin!, if: :admin_url
   def index
     @end_users = EndUser.page(params[:page])
   end

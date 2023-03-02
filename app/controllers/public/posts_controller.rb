@@ -1,4 +1,5 @@
 class Public::PostsController < ApplicationController
+   before_action :authenticate_end_user!,except: [:guest_sign_in]
   def index
 
     @posts = Post.page(params[:page]).per(5)
